@@ -1,0 +1,14 @@
+{
+  "name": "@konglx/data-validate",
+  "version": "1.0.0",
+  "description": "easy data validate",
+  "main": "validate.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "konglx",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2"
+  }
+}
