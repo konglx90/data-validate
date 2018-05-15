@@ -2,7 +2,7 @@
   "name": "@konglx/data-validate",
   "version": "1.0.1",
   "description": "easy data validate",
-  "main": "validate.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
