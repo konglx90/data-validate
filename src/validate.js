@@ -1,16 +1,7 @@
-const isEmpty = o => o === null || o === undefined;
-const classOf = (o) => {
-    if (o === null) { return 'null'; }
-    if (o === undefined) { return 'undefined'; }
-    return Object.prototype.toString.call(o).slice(8, -1).toLocaleLowerCase();
-}
-const includes = (array, item) => {
-    if (array.includes) {
-        return array.includes(item);
-    }
+const Types = require('./types');
+const { isEmpty, includes } = require('./utils');
+const classOf = require('./classOf');
 
-    return array.indexOf(item) > -1;
-}
 // this validate just support basic validate
 const validateEngine = (validate, data) => {
     if (isEmpty(validate)) return false;
@@ -38,6 +29,10 @@ const validateEngine = (validate, data) => {
         }
     }
 
+    if (classOf(validate) !== 'object') {
+        return classOf(data) === classOf(validate);
+    }
+
     const validateObjKeys = Object.keys(validate);
     // empty object
     if (validateObjKeys.length === 0) {
@@ -50,5 +45,6 @@ const validateEngine = (validate, data) => {
 };
 
 module.exports = {
-    validateEngine
+    validateEngine,
+    Types,
 };
