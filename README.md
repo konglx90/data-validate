@@ -1,4 +1,6 @@
+### Data validate
 
+仿 `TypeScript` 的类型检查库
 
 ### Validate rules
 
@@ -30,6 +32,10 @@ validate('array', []) // => true
 function Dog() {}
 const dog = new Dog();
 validate(Dog, dog); // => true
+
+// optional
+validate('?:string', undefined) // => true
+validate('?:string', 'ok') // => true
 
 ```
 

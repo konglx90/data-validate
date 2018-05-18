@@ -7,8 +7,13 @@ const validateEngine = (validate, data) => {
     if (isEmpty(validate)) return false;
 
     if (classOf(validate) === 'string') {
+        let types = validate.split('|');
+        // handle ?: optional
+        if (validate.indexOf('?:') > -1) {
+            types = validate.slice(2).split('|').concat('undefined');
+        }
         // handle or type 'string|number'
-        if (!includes(validate.split('|'), classOf(data))) {
+        if (!includes(types, classOf(data))) {
             // console.trace(`need data is ${validate} in generateCacheApi`);
             return false;
         }
