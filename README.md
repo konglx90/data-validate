@@ -1,6 +1,9 @@
 ### Data validate
 
-仿 `TypeScript` 的类型检查库
+仿 `TypeScript` 的数据类型检查库
+
+1. API 仿`TypeScript`
+2. 相对与于 `prop-types`, api 贴合原生`js`, 默认`isRequired`
 
 ### Validate rules
 
