@@ -131,3 +131,10 @@ validate(
 ### publish
 
 `npm publish --access=public`
+
+### Dev
+
+测试覆盖率 [Istanbul](https://github.com/gotwarlost/istanbul#features)
+```sh
+npm run cover
+```

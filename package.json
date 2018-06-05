@@ -4,11 +4,14 @@
   "description": "easy data validate",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "cover": "istanbul cover _mocha -- -R spec --timeout 5000 --recursive"
   },
   "author": "konglx",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.1.2"
+    "chai": "^4.1.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0"
   }
 }
