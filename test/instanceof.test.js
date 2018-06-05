@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { validateEngine: validate, Types } = require('../src/validate');
+const { validateEngine: validate, Types } = require('../dist/validate');
 
 function Dog() {}
 

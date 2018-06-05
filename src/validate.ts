@@ -1,8 +1,7 @@
-const Types = require('./types');
-const { isEmpty, includes } = require('./utils');
-const classOf = require('./classOf');
+import Types from './types';
+import { isEmpty, includes } from './utils';
+import classOf from './classOf';
 
-// this validate just support basic validate
 const validateEngine = (validate, data) => {
     if (isEmpty(validate)) return false;
 
@@ -49,7 +48,7 @@ const validateEngine = (validate, data) => {
     });
 };
 
-module.exports = {
+export {
     validateEngine,
     Types,
 };

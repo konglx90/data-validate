@@ -1,8 +1,8 @@
 const expect = require('chai').expect;
-const validate = require('../src/validate').validateEngine;
+const validate = require('../dist/validate').validateEngine;
 
 const VALIDATE_TEST_CASES = [
-    {   
+    {
         title: 'validate string:string',
         validate: 'string',
         data: 'ok',

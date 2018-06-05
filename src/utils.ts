@@ -9,15 +9,11 @@ const getClassName = (propValue) => {
 
 const isEmpty = o => o === null || o === undefined;
 
-const includes = (array, item) => {
-    if (array.includes) {
-        return array.includes(item);
-    }
-
+const includes = <T>(array: Array<T>, item: T) => {
     return array.indexOf(item) > -1;
 }
 
-module.exports = {
+export {
     getClassName,
     isEmpty,
     includes,

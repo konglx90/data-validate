@@ -4,6 +4,8 @@
   "description": "easy data validate",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
     "test": "mocha",
     "cover": "istanbul cover _mocha -- -R spec --timeout 5000 --recursive"
   },

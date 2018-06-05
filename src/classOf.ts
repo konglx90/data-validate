@@ -1,5 +1,5 @@
-const Types = require('./types');
-const { getClassName, ANONYMOUS } = require('./utils');
+import Types from './types';
+import { getClassName, ANONYMOUS } from './utils';
 
 const classOf = (o) => {
     if (o === null) { return 'null'; }
@@ -16,4 +16,4 @@ const classOf = (o) => {
     return Object.prototype.toString.call(o).slice(8, -1).toLocaleLowerCase();
 }
 
-module.exports = classOf;
+export default classOf;

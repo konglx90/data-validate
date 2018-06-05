@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const validate = require('../src/validate').validateEngine;
+const validate = require('../dist/validate').validateEngine;
 
 describe('check optional validate', () => {
     it('optional check', () => {
@@ -21,6 +21,6 @@ describe('check optional validate', () => {
     });
 
     it('optional check:sss', () => {
-        expect(validate('strng', 'ok')).to.be.equal(true);
+        expect(validate('strng', 'ok')).to.be.equal(false);
     });
 });

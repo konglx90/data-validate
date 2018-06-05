@@ -1,3 +1,3 @@
-const validate = require('./src/validate');
+const validate = require('./dist/validate');
 
 module.exports = validate;

@@ -1,4 +1,4 @@
-const { ANONYMOUS } = require('./utils');
+import { ANONYMOUS } from './utils';
 
 const instanceOf = (o) => {
     if (o && o.name) {
@@ -7,6 +7,6 @@ const instanceOf = (o) => {
     return ANONYMOUS;
 };
 
-module.exports = {
+export default {
     instanceOf,
 }
