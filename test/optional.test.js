@@ -19,4 +19,8 @@ describe('check optional validate', () => {
           a: '?:string'
         }, {})).to.be.equal(true);
     });
+
+    it('optional check:sss', () => {
+        expect(validate('strng', 'ok')).to.be.equal(true);
+    });
 });
