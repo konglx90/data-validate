@@ -22,7 +22,12 @@
             if (validate.indexOf('?:') > -1) {
                 types = validate.slice(2).split('|').concat('undefined');
             }
-            // handle or type 'string|number'
+            types.forEach(function (type) {
+                if (!utils_1.includes(types_1.basicTypes, type)) {
+                    throw new Error(type + " is not a right type");
+                }
+            });
+            // handle or type like 'string|number'
             if (!utils_1.includes(types, classOf_1.default(data))) {
                 // console.trace(`need data is ${validate} in generateCacheApi`);
                 return false;

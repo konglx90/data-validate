@@ -1,4 +1,4 @@
-import Types from './types';
+import Types, { basicTypes } from './types';
 import { isEmpty, includes } from './utils';
 import classOf from './classOf';
 
@@ -11,7 +11,14 @@ const validateEngine = (validate, data) => {
         if (validate.indexOf('?:') > -1) {
             types = validate.slice(2).split('|').concat('undefined');
         }
-        // handle or type 'string|number'
+
+        types.forEach(type => {
+          if (!includes(basicTypes, type)) {
+            throw new Error(`${type} is not a right type`);
+          }
+        })
+
+        // handle or type like 'string|number'
         if (!includes(types, classOf(data))) {
             // console.trace(`need data is ${validate} in generateCacheApi`);
             return false;

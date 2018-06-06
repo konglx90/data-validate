@@ -16,7 +16,15 @@
         }
         return utils_1.ANONYMOUS;
     };
+    exports.basicTypes = [
+        'string',
+        'number',
+        'array',
+        'null',
+        'undefined'
+    ];
     exports.default = {
         instanceOf: instanceOf,
+        basicTypes: exports.basicTypes,
     };
 });
