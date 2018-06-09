@@ -1,6 +1,6 @@
 import { ANONYMOUS } from './utils';
 
-const instanceOf = (o) => {
+const instanceOf = (o: any) => {
     if (o && o.name) {
         return o.name;
     }

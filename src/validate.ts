@@ -6,24 +6,7 @@ const validateEngine = (validate, data) => {
     if (isEmpty(validate)) return false;
 
     if (classOf(validate) === 'string') {
-        let types = validate.split('|');
-        // handle ?: optional
-        if (validate.indexOf('?:') > -1) {
-            types = validate.slice(2).split('|').concat('undefined');
-        }
-
-        types.forEach(type => {
-          if (!includes(basicTypes, type)) {
-            throw new Error(`${type} is not a right type`);
-          }
-        })
-
-        // handle or type like 'string|number'
-        if (!includes(types, classOf(data))) {
-            // console.trace(`need data is ${validate} in generateCacheApi`);
-            return false;
-        }
-        return true;
+      return compare(validate, data);
     }
 
     if (classOf(validate) === 'array') {
@@ -54,6 +37,26 @@ const validateEngine = (validate, data) => {
         return validateEngine(validate[key], data[key]);
     });
 };
+
+const compare = (validate: string, data) => {
+  let types = validate.split('|');
+  // handle ?: optional
+  if (validate.indexOf('?:') > -1) {
+      types = validate.slice(2).split('|').concat('undefined');
+  }
+
+  types.forEach(type => {
+    if (!includes(basicTypes, type)) {
+      throw new Error(`${type} is not a right type`);
+    }
+  })
+
+  // handle or type like 'string|number'
+  if (!includes(types, classOf(data))) {
+      return false;
+  }
+  return true;
+}
 
 export {
     validateEngine,
