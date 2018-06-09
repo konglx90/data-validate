@@ -20,7 +20,7 @@ describe('check optional validate', () => {
         }, {})).to.be.equal(true);
     });
 
-    it('optional check:sss', () => {
-        expect(validate('strng', 'ok')).to.be.equal(false);
+    it('optional check:type:error', () => {
+        expect(() => validate('strng', 'ok')).to.throw(Error, 'strng is not a right type');
     });
 });

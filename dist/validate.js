@@ -17,26 +17,11 @@
         if (utils_1.isEmpty(validate))
             return false;
         if (classOf_1.default(validate) === 'string') {
-            var types = validate.split('|');
-            // handle ?: optional
-            if (validate.indexOf('?:') > -1) {
-                types = validate.slice(2).split('|').concat('undefined');
-            }
-            types.forEach(function (type) {
-                if (!utils_1.includes(types_1.basicTypes, type)) {
-                    throw new Error(type + " is not a right type");
-                }
-            });
-            // handle or type like 'string|number'
-            if (!utils_1.includes(types, classOf_1.default(data))) {
-                // console.trace(`need data is ${validate} in generateCacheApi`);
-                return false;
-            }
-            return true;
+            return compare(validate, data);
         }
         if (classOf_1.default(validate) === 'array') {
             if (classOf_1.default(data) !== 'array') {
-                // console.trace('data must be a array in generateCacheApi');
+                console.trace('data must be a array in generateCacheApi');
                 return false;
             }
             if (validate.length > 0) {
@@ -60,4 +45,21 @@
         });
     };
     exports.validateEngine = validateEngine;
+    var compare = function (validate, data) {
+        var types = validate.split('|');
+        // handle ?: optional
+        if (validate.indexOf('?:') > -1) {
+            types = validate.slice(2).split('|').concat('undefined');
+        }
+        types.forEach(function (type) {
+            if (!utils_1.includes(types_1.basicTypes, type)) {
+                throw new Error(type + " is not a right type");
+            }
+        });
+        // handle or type like 'string|number'
+        if (!utils_1.includes(types, classOf_1.default(data))) {
+            return false;
+        }
+        return true;
+    };
 });
