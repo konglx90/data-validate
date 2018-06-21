@@ -10,9 +10,11 @@ const instanceOf = (o: any) => {
 export const basicTypes = [
   'string',
   'number',
-  'array',
+  'boolean',
   'null',
-  'undefined'
+  'undefined',
+  'object',
+  'array',
 ];
 
 export default {
