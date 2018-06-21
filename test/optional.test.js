@@ -2,19 +2,19 @@ const expect = require('chai').expect;
 const validate = require('../dist/validate').validateEngine;
 
 describe('check optional validate', () => {
-    it('optional check', () => {
+    it('base optional: has', () => {
         expect(validate('?:string', 'ok')).to.be.equal(true);
     });
 
-    it('optional check', () => {
+    it('base optional: has no', () => {
         expect(validate('?:string', undefined)).to.be.equal(true);
     });
 
-    it('optional check', () => {
+    it('base optional: null', () => {
         expect(validate('?:string', null)).to.be.equal(false);
     });
 
-    it('optional check', () => {
+    it('more validate about optional', () => {
         expect(validate({
           a: '?:string'
         }, {})).to.be.equal(true);

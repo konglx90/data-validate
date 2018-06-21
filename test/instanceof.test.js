@@ -2,20 +2,14 @@ const expect = require('chai').expect;
 const { validateEngine: validate, Types } = require('../dist/validate');
 
 function Dog() {}
+const dog = new Dog();
 
 describe('check instanceof validate', () => {
-    const dog = new Dog();
-    it('easy check', () => {
+    it('base instanceof test', () => {
         expect(validate(Dog, dog)).to.be.equal(true);
     });
 
-    it('easy check', () => {
-        expect(validate({
-            d: Dog
-        }, dog)).to.be.equal(false);
-    });
-
-    it('easy check', () => {
+    it('object validate', () => {
         expect(validate({
             d: Dog
         }, {
@@ -23,7 +17,13 @@ describe('check instanceof validate', () => {
         })).to.be.equal(true);
     });
 
-    it('easy check', () => {
+    it('fail the test in object validate', () => {
+        expect(validate({
+            d: Dog
+        }, dog)).to.be.equal(false);
+    });
+
+    it('array validate', () => {
         expect(validate([Dog], [dog, dog])).to.be.equal(true);
     });
 });

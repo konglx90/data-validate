@@ -15,13 +15,13 @@ const VALIDATE_TEST_CASES = [
         expect: true,
     },
     {
-        title: 'validate string:string',
+        title: 'validate string:array',
         validate: 'array',
         data: [],
         expect: true,
     },
     {
-        title: 'validate string:object true',
+        title: 'validate object:object to true',
         validate: {
             name: 'string',
             count: 'number'
@@ -33,7 +33,7 @@ const VALIDATE_TEST_CASES = [
         expect: true,
     },
     {
-        title: 'validate string:object false',
+        title: 'validate object:object to false',
         validate: {
             name: 'string',
             count: 'number'
@@ -44,25 +44,25 @@ const VALIDATE_TEST_CASES = [
         expect: false,
     },
     {
-        title: 'validate string:string|number 1',
+        title: 'validate string:string|number to string',
         validate: 'string|number',
         data: 'ok',
         expect: true,
     },
     {
-        title: 'validate string:string|number 2',
+        title: 'validate string:string|number to number',
         validate: 'string|number',
         data: 1,
         expect: true,
     },
     {
-        title: 'validate string:null 1',
+        title: 'validate string:null to true',
         validate: 'null',
         data: null,
         expect: true,
     },
     {
-        title: 'validate string:null 2',
+        title: 'validate string:null to false',
         validate: 'null',
         data: 'null',
         expect: false,
@@ -81,7 +81,7 @@ const VALIDATE_TEST_CASES = [
         expect: true,
     },
     {
-        title: 'validate array:empty',
+        title: 'validate array:empty array',
         validate: [],
         data: [],
         expect: true,
@@ -158,7 +158,7 @@ const VALIDATE_TEST_CASES = [
     },
 ]
 
-describe('expect', () => {
+describe('Base situation test', () => {
     VALIDATE_TEST_CASES.forEach(c => {
         it(c.title, () => {
             expect(validate(c.validate, c.data)).to.be.equal(c.expect);
