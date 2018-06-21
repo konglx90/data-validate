@@ -44,7 +44,6 @@
             return validateEngine(validate[key], data[key]);
         });
     };
-    exports.validateEngine = validateEngine;
     var compare = function (validate, data) {
         var types = validate.split('|');
         // handle ?: optional
@@ -62,4 +61,5 @@
         }
         return true;
     };
+    exports.default = validateEngine;
 });

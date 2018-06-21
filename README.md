@@ -1,19 +1,16 @@
 ### Data validate
 
-仿 `TypeScript` 的数据类型检查库
-
-1. API 仿`TypeScript`
-2. 相对与于 `prop-types`, api 贴合原生`js`, 默认`isRequired`
-
 ### Validate rules
+
+A brief data validation library.
 
 #### Import
 
 ```js
 // ES6
-import { validateEngine } from '@konglx/data-validate';
+import validate from '@konglx/data-validate';
 // ES5
-const { validateEngine } = require('@konglx/data-validate');
+const validate = require('@konglx/data-validate');
 ```
 
 #### String rules
@@ -95,10 +92,11 @@ validate([{
 
 ```
 
+[More examples](./test/base.test.js)
 
 #### Other Tips
 
-1. 数组可以为空, 对象一定会校验
+1. Empty Array
 
 ```js
 // can pass validate
@@ -134,7 +132,7 @@ validate(
 
 ### Dev
 
-测试覆盖率 [Istanbul](https://github.com/gotwarlost/istanbul#features)
+Test Cover [Istanbul](https://github.com/gotwarlost/istanbul#features)
 ```sh
 npm run cover
 ```

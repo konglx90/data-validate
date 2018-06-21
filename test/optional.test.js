@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const validate = require('../dist/validate').validateEngine;
+const validate = require('../dist/validate').default;
 
 describe('check optional validate', () => {
     it('base optional: has', () => {

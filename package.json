@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "mocha",
+    "test": "tsc && mocha",
     "cover": "istanbul cover _mocha -- -R spec --timeout 5000 --recursive"
   },
   "author": "konglx",

@@ -1,5 +1,6 @@
 const expect = require('chai').expect;
-const { validateEngine: validate, Types } = require('../dist/validate');
+const validate = require('../dist/validate').default;
+const { Types } = validate;
 
 function Dog() {}
 const dog = new Dog();

@@ -58,7 +58,6 @@ const compare = (validate: string, data) => {
   return true;
 }
 
-export {
-    validateEngine,
-    Types,
-};
+export default validateEngine;
+
+export { Types };
