@@ -19,9 +19,11 @@
     exports.basicTypes = [
         'string',
         'number',
-        'array',
+        'boolean',
         'null',
-        'undefined'
+        'undefined',
+        'object',
+        'array',
     ];
     exports.default = {
         instanceOf: instanceOf,

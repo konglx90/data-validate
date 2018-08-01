@@ -15,6 +15,24 @@ const VALIDATE_TEST_CASES = [
         expect: true,
     },
     {
+        title: 'validate string:true',
+        validate: 'boolean',
+        data: true,
+        expect: true,
+    },
+    {
+        title: 'validate boolean:false',
+        validate: 'boolean',
+        data: false,
+        expect: true,
+    },
+    {
+        title: 'validate string:object',
+        validate: 'object',
+        data: {},
+        expect: true,
+    },
+    {
         title: 'validate string:array',
         validate: 'array',
         data: [],
