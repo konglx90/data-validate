@@ -13,10 +13,13 @@
     exports.Types = types_1.default;
     var utils_1 = require("./utils");
     var classOf_1 = require("./classOf");
-    var validateEngine = function (validate, data) {
+    var Path = '';
+    var validateEngine = function (validate, data, path) {
+        if (path === void 0) { path = ''; }
         if (utils_1.isEmpty(validate))
             return false;
         if (classOf_1.default(validate) === 'string') {
+            Path = path;
             return compare(validate, data);
         }
         if (classOf_1.default(validate) === 'array') {
@@ -25,7 +28,7 @@
                 return false;
             }
             if (validate.length > 0) {
-                return data.every(function (d) { return validateEngine(validate[0], d); });
+                return data.every(function (d, index) { return validateEngine(validate[0], d, path + "." + index); });
             }
             else {
                 // empty Array
@@ -41,7 +44,7 @@
             return classOf_1.default(data) === 'object';
         }
         return Object.keys(validate).every(function (key) {
-            return validateEngine(validate[key], data[key]);
+            return validateEngine(validate[key], data[key], path + "." + key);
         });
     };
     var compare = function (validate, data) {
@@ -61,5 +64,15 @@
         }
         return true;
     };
-    exports.default = validateEngine;
+    var handleError = function (func) {
+        return function (validate, data, falseThrowError) {
+            if (falseThrowError === void 0) { falseThrowError = false; }
+            var result = func(validate, data);
+            if (!result && falseThrowError) {
+                throw new Error(Path);
+            }
+            return result;
+        };
+    };
+    exports.default = handleError(validateEngine);
 });

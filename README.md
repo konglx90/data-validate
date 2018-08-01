@@ -92,6 +92,13 @@ validate([{
 
 ```
 
+#### Error
+
+```js
+// If you want get the error path
+validate({ ok: 'number' }, { ok: '9999' }, falseThrowError = true); // This will throw a Error with error path
+```
+
 [More examples](./test/base.test.js)
 
 #### Other Tips

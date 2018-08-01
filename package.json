@@ -15,5 +15,9 @@
     "chai": "^4.1.2",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0"
+  },
+  "repository": { 
+    "type" : "git", 
+    "url" : "https://github.com/konglx90/data-validate"
   }
 }

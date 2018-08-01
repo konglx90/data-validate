@@ -2,10 +2,13 @@ import Types, { basicTypes } from './types';
 import { isEmpty, includes } from './utils';
 import classOf from './classOf';
 
-const validateEngine = (validate, data) => {
+let Path = '';
+
+const validateEngine = (validate, data, path = '') => {
     if (isEmpty(validate)) return false;
 
     if (classOf(validate) === 'string') {
+      Path = path;
       return compare(validate, data);
     }
 
@@ -16,7 +19,7 @@ const validateEngine = (validate, data) => {
         }
 
         if (validate.length > 0) {
-          return data.every(d => validateEngine(validate[0], d));
+          return data.every((d, index) => validateEngine(validate[0], d, `${path}.${index}`));
         } else {
           // empty Array
           return classOf(data) === 'array';
@@ -34,7 +37,7 @@ const validateEngine = (validate, data) => {
     }
 
     return Object.keys(validate).every((key) => {
-        return validateEngine(validate[key], data[key]);
+        return validateEngine(validate[key], data[key], `${path}.${key}`);
     });
 };
 
@@ -53,11 +56,22 @@ const compare = (validate: string, data) => {
 
   // handle or type like 'string|number'
   if (!includes(types, classOf(data))) {
-      return false;
+    return false;
   }
   return true;
 }
 
-export default validateEngine;
+const handleError = (func) => {
+  return function(validate, data, falseThrowError = false) {
+    const result = func(validate, data);
+    if (!result && falseThrowError) {
+      throw new Error(Path);
+    }
+
+    return result;
+  }
+}
+
+export default handleError(validateEngine);
 
 export { Types };
