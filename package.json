@@ -1,6 +1,6 @@
 {
   "name": "@konglx/data-validate",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "easy data validate",
   "main": "index.js",
   "scripts": {
