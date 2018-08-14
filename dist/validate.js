@@ -24,7 +24,7 @@
         }
         if (classOf_1.default(validate) === 'array') {
             if (classOf_1.default(data) !== 'array') {
-                console.trace('data must be a array in generateCacheApi');
+                console.trace('data must be a array');
                 Path = path;
                 return false;
             }
