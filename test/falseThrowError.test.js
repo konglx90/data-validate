@@ -8,5 +8,9 @@ describe('false throw error', () => {
         }, {
             ok: '9999'
         }, true)).to.throw(Error, '.ok');
+
+        expect(() => validate({
+            ids: ['string']
+        }, {}, true)).to.throw(Error, '.ids');
     });
 });
