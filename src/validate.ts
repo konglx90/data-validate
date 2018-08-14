@@ -14,7 +14,7 @@ const validateEngine = (validate, data, path = '') => {
 
     if (classOf(validate) === 'array') {
         if (classOf(data) !== 'array') {
-            console.trace('data must be a array in generateCacheApi');
+            console.trace('data must be a array');
             Path = path;
             return false;
         }
